@@ -1,0 +1,12 @@
+
+      <!-- Team item -->
+      <div class="mb-5" *ngIf="profileDetails">
+          <div class="bg-white rounded shadow-sm py-5 px-4"><img [src]="profileDetails.avatar" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+              <h5 class="mb-0"> {{profileDetails.first_name}} {{profileDetails.last_name}}</h5><span class="small text-uppercase text-muted">{{profileDetails.email}}</span>
+              <div class="d-grid gap-2 d-md-block">
+                <button class="btn btn-secondary btn-sm w-100 mt-2" type="button" (click)="action(profileDetails.id, 'reject')">Reject</button>
+                <br>
+                <button class="btn btn-primary btn-sm  w-100 mt-2" type="button" (click)="action(profileDetails.id, 'accept')">Accept</button>
+              </div>
+          </div>
+      </div><!-- End -->

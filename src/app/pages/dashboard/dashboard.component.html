@@ -1,0 +1,22 @@
+<div class="container mt-3">
+  <div class="row text-center">
+    <input type="search" class="form-control mb-3 mt-3" [(ngModel)]="searchText" placeholder="Search..." aria-label="Search">
+    <ng-container *ngFor="let item of profileArray | filter : searchText">
+      <div class="col-3">
+        <app-card [profileDetails]="item" (valueChange)='action($event)'></app-card>
+      </div>
+    </ng-container>
+
+
+    <div class="text-center col-md-12">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item" [ngClass]="{'disabled': pageCount<2}"><a class="page-link"  (click)="getProfiles(pageCount = pageCount-1)">Previous</a></li>
+          <li class="page-item" [ngClass]="{'disabled':pageCount>=2}"><a class="page-link" (click)="getProfiles(pageCount= pageCount+1)">Next</a></li>
+
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+</div>
